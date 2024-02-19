@@ -1,0 +1,123 @@
+---
+// Custom component imports
+import AnchorButton from "./AnchorButton.astro";
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components'
+
+// File imports
+import Logo from "../images/small-logo.svg";
+---
+
+<header>
+    <nav>
+        <div class="nav__left">
+            <a href="/">
+                <Image
+                    src={Logo}
+                    alt="Premier Roofing & Gutter Maintenance Logo."
+                    width="160"
+                />
+            </a>
+            <div class="nav__contact">
+                <ul>
+                    <li>
+                        <Icon
+                            name="ic:outline-email"
+                            width=22
+                            height=22
+                        />darran-pfr@outlook.com
+                    </li>
+                    <li>
+                        <Icon
+                            name="ic:outline-local-phone"
+                            width=22
+                            height=22
+                        />07545 849 278
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav__right">
+            <ul>
+                <li><a href="/services">Services</a></li>
+                <li><AnchorButton href="/quick-quote" text="Quick Quote" /></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<style>
+    nav {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem var(--pdx-container);
+        background-color: white;
+        box-shadow: 0px -4px 9px #676767;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .nav__left {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    [data-icon] {
+        position: relative;
+        top: 0.35rem;
+        margin-right: 0.4rem;
+        color: var(--primary-color);
+    }
+
+    .nav__left li {
+        font-weight: 700;
+    }
+
+    /* .nav__left li:not(:last-child) {
+        margin-bottom: 0.1rem;
+    } */
+
+    .nav__left a:hover {
+        opacity: 0.9;
+    }
+
+    .nav__right {
+        text-transform: uppercase;
+        font-size: 0.86rem;
+    }
+
+    .nav__right ul {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        font-weight: 700;
+    }
+
+    .nav__right a {
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--primary-color);
+        }
+    }
+
+    .nav__right a.active {
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--primary-color);
+    }
+</style>
+
+<script>
+    const nav = document.querySelector("nav");
+    const navLinks = nav.querySelectorAll("a");
+    const currentURL = window.location.href;
+    navLinks.forEach((link) => {
+        if (link.href == currentURL) {
+            link.classList.add("active");
+        }
+    });
+</script>

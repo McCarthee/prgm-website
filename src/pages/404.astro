@@ -1,0 +1,66 @@
+---
+import AnchorButton from "../components/AnchorButton.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 | Premier Roofing & Gutter Maintenance">
+    <div class="four-oh-four">
+        <h1>Oh No, Something Went Wrong!</h1>
+        <p>
+            The page you tried to access doesn't exist, click the button below
+            to go back home.
+        </p>
+        <AnchorButton href="/" text="Go Home" fontSize="1.2rem" />
+    </div>
+</Layout>
+
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .four-oh-four {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .four-oh-four::before {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "404";
+        font-weight: 700;
+        font-size: 40rem;
+        opacity: 0.03;
+        line-height: 1;
+        z-index: -99999;
+    }
+
+    h1,
+    p {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    p {
+        margin-inline: auto;
+    }
+</style>

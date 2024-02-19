@@ -1,0 +1,25 @@
+---
+const { text, href, fontSize = "1rem" } = Astro.props;
+---
+
+<a href={href}>{text}</a>
+
+<style define:vars={{ fontSize }}>
+    a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        box-shadow: 1px 1px 3px #000;
+        transition: .2s ease-in-out background-color;
+        font-weight: 700;
+        letter-spacing: .2px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0.8em 1.1em;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+        }
+    }
+</style>

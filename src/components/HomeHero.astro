@@ -1,0 +1,54 @@
+---
+import AnchorButton from "./AnchorButton.astro";
+import Section from "./Section.astro";
+---
+
+<section class="hero">
+    <div class="hero__content">
+        <h1>Welcome to...<br />Premier Roofing & Gutter Maintenance</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero qui
+            quia, praesentium officia dolorem dolorum enim quis reprehenderit,
+            laborum non dolore sed nesciunt odio et laboriosam voluptatem! Esse,
+            modi beatae adipisci perspiciatis animi tenetur maiores fugit
+            praesentium qui unde. Perferendis!
+        </p>
+        <AnchorButton
+            href="/quick-quote"
+            text="Quick Quote"
+            fontSize="1.2rem"
+        />
+    </div>
+    <div class="hero__blur"></div>
+</section>
+
+<style>
+    .hero {
+        display: flex;
+        z-index: 1;
+        padding: 7rem var(--pdx-container);
+        background: url(/hero-bg.avif);
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+    }
+
+    .hero__content h1 {
+        font-size: 4rem;
+    }
+
+    .hero * {
+        color: var(--secondary-color);
+    }
+
+    .hero__blur {
+        z-index: -1;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgb(0 0 0 / 55%);
+        backdrop-filter: blur(6px);
+    }
+</style>
